@@ -31,7 +31,7 @@ If you do not agree with this policy, please do not use the Extension.
 
 **Optional newsletter blocking (preview):** If enabled in the popup, the Extension may try to dismiss certain newsletter / email signup overlays using on-page heuristics.
 
-**Statistics:** The popup may show counts of blocked events, including totals and per-website (host) summaries.
+**Statistics:** The popup may show counts of blocked events, including totals and per-website summaries. Per-site values are keyed to the **top-level page hostname** (the site in the address bar) when the browser provides it, so they stay consistent even if a banner or widget runs inside an embedded frame.
 
 ---
 
@@ -42,7 +42,7 @@ As shown in the browser’s permission prompt, the Extension may request:
 | Permission   | Purpose |
 |--------------|---------|
 | `storage`    | Save on/off state, optional feature toggles, and local statistics. |
-| `tabs`       | Support popup actions (e.g. reloading the active tab after setting changes) and light handling for single-page app navigation. |
+| `tabs`       | Support popup actions (e.g. reloading the active tab after setting changes), light handling for single-page app navigation, and—when updating statistics—the background may read the **active tab’s URL** to map per-site counters to the **top-level** hostname (http/https only). That processing stays in the extension; it is **not** sent to us except if you voluntarily submit a bug report that includes the page URL. |
 | `activeTab`  | Access aligned with using the Extension from the browser toolbar for the current tab when applicable. |
 
 The Extension uses **content scripts** with broad site coverage because consent banners and related UI can appear on many websites and sometimes inside **embedded frames** (`iframes`).
@@ -57,7 +57,7 @@ Stored only on your device (we do not receive this automatically) may include:
 
 - Whether the Extension is enabled or disabled  
 - Optional toggles (e.g. newsletter blocking preview)  
-- Numeric counters (totals and per-host values shown in the popup)  
+- Numeric counters (totals and per-host values shown in the popup; per-host keys follow the top-level page hostname where applicable)  
 - A timestamp used for a short bug-report cooldown, if implemented  
 
 You can remove Extension data using your browser’s settings. The popup may offer **Reset statistics** to clear stored counters.
