@@ -22,4 +22,4 @@ The extension source code is **not** published here.
 
 ---
 
-*Last updated: <04.04.2026>*
+*Last updated: 04 April 2026*
