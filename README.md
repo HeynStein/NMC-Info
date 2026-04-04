@@ -14,7 +14,7 @@ The extension source code is **not** published here.
 
 ## Contact
 
-- **Issues / feedback:** open an issue in this repository, or email: **'cptheynstein@gmail.com**
+- **Issues / feedback:** open an issue in this repository, or email: **cptheynstein@gmail.com**
 
 ## Developer
 
