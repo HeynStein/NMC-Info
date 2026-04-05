@@ -1,6 +1,6 @@
 # Privacy Policy — No More Cookies
 
-**Last updated:** April 4, 2026
+**Last updated:** April 5, 2026
 
 This Privacy Policy describes how the **No More Cookies** browser extension (“**the Extension**”) handles information when you install and use it. It applies to the Extension distributed for **Google Chrome** and other **Chromium-based browsers** that support **Manifest V3**.
 
@@ -19,15 +19,16 @@ If you do not agree with this policy, please do not use the Extension.
 
 - The Extension helps reduce interruptions from cookie consent prompts and, if you turn it on, certain newsletter / email-capture overlays.
 - Most behavior runs **locally in your browser**.
+- To do that, the Extension may **change how pages look and behave** on sites you visit (for example by applying **inline CSS** or adjusting attributes such as scroll lock and `inert`) so banners can be dismissed and the page stays scrollable and clickable. Those changes happen **on your device**; we do **not** receive the page HTML or your browsing content from that process.
 - Settings and statistics are stored **on your device** (not on servers we operate).
-- If you use **Report bug** in the Extension popup, some **diagnostic information** is sent to **Google** via **Google Forms**.
+- If you use **Report bug** in the Extension popup, some **diagnostic information** is sent to **Google** via **Google Forms**, including **only the site’s base URL** (not the full page link).
 - We **do not sell** your data. The Extension is **not directed at children under 13** (or the minimum age in your country).
 
 ---
 
 ## What the Extension does
 
-**Cookie consent:** The Extension tries to decline or dismiss common cookie banners and consent prompts on sites you visit.
+**Cookie consent:** The Extension tries to decline or dismiss common cookie banners and consent prompts on sites you visit (including various consent management platforms). Where sites leave behind invisible “locks” (e.g. dark overlays, blocked scrolling, or non-clickable content), the Extension may apply additional **local** fixes so normal browsing can continue.
 
 **Optional newsletter blocking (preview):** If enabled in the popup, the Extension may try to dismiss certain newsletter / email signup overlays using on-page heuristics.
 
@@ -42,7 +43,7 @@ As shown in the browser’s permission prompt, the Extension may request:
 | Permission   | Purpose |
 |--------------|---------|
 | `storage`    | Save on/off state, optional feature toggles, and local statistics. |
-| `tabs`       | Support popup actions (e.g. reloading the active tab after setting changes), light handling for single-page app navigation, and—when updating statistics—the background may read the **active tab’s URL** to map per-site counters to the **top-level** hostname (http/https only). That processing stays in the extension; it is **not** sent to us except if you voluntarily submit a bug report that includes the page URL. |
+| `tabs`       | Support popup actions (e.g. reloading the active tab after setting changes), light handling for single-page app navigation, and—when updating statistics—the background may read the **active tab’s URL** to map per-site counters to the **top-level** hostname (http/https only). That processing stays in the extension. **Bug reports** only send the **base site URL** (origin), not the full page address — see below. |
 | `activeTab`  | Access aligned with using the Extension from the browser toolbar for the current tab when applicable. |
 
 The Extension uses **content scripts** with broad site coverage because consent banners and related UI can appear on many websites and sometimes inside **embedded frames** (`iframes`).
@@ -60,13 +61,17 @@ Stored only on your device (we do not receive this automatically) may include:
 - Numeric counters (totals and per-host values shown in the popup; per-host keys follow the top-level page hostname where applicable)  
 - A timestamp used for a short bug-report cooldown, if implemented  
 
-You can remove Extension data using your browser’s settings. The popup may offer **Reset statistics** to clear stored counters.
+You can remove Extension data using your browser’s settings. The popup may offer **per-category reset controls** to clear cookie and/or newsletter counters separately.
 
 **We do not run a backend** that collects this local data by default.
 
 ### B) Data processed in memory on webpages
 
-To find and interact with banners, buttons, and overlays, the Extension reads and acts on the **page structure (DOM)** of sites you visit (including frames where applicable). This happens **on your device** to provide the features above.
+To find and interact with banners, buttons, and overlays, the Extension reads and acts on the **page structure (DOM)** and **computed styles** of sites you visit (including frames where applicable). This happens **entirely on your device**.
+
+**What “acting on the page” means:** The Extension may inject or override **CSS** (including via the extension’s own stylesheet and via **inline styles** on specific elements), adjust **attributes** (for example to reduce scroll or pointer “locks”), and programmatically **click** visible controls that correspond to decline / dismiss actions. It does **not** remove DOM nodes in a way intended to crash sites; when elements are hidden, that is generally done with CSS (e.g. `display`, `visibility`, `opacity`, `pointer-events`) rather than deleting nodes.
+
+**What is not sent to us by default:** The full text of pages you read, form values you type, passwords, or other page content are **not** transmitted to our servers as part of normal Extension operation. The only **optional** outbound data path described in this policy is **bug reports** (see below).
 
 ---
 
@@ -78,7 +83,7 @@ If you submit a report, the Extension sends a request to **Google Forms** (`http
 
 **Information that may be sent can include:**
 
-- The **URL** of the page you report from  
+- The **base URL of the site** you report from (scheme + host + `/` only, e.g. `https://www.example.com/`) — **not** the full address (no path, query string, or fragment), so specific articles or private-looking URL segments are not included  
 - **Extension version**  
 - **Context hints** such as time zone / locale-related hints and a **User-Agent** string (as available in the browser environment)  
 - **Date/time** fields used to organize responses  
