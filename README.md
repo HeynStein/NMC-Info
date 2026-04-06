@@ -13,12 +13,13 @@ The extension **source code** is maintained in a **private** GitHub repository a
 - Tries to **decline or dismiss** common cookie consent banners and CMPs across many EU languages, with extra handling for large platforms (e.g. Meta, Google / YouTube) and conservative behavior on some public broadcasters and Schibsted-style “consent or pay” sites where automatic reject is not appropriate.
 - Applies **local, in-browser** fixes when sites still trap scrolling or leave broken overlays after a banner is handled—so pages stay usable where possible. Not every site behaves the same; some cases (e.g. occasional CMP timing) are still being improved.
 - **Optional:** If you turn it on, **Block Newsletters** (preview) uses on-page heuristics to reduce some email-capture modals; a short grace period applies when you open subscribe flows yourself.
+- **Statistics:** The popup can show **totals** and **per-site** counts (keyed to the **top-level page hostname** in the address bar, so numbers stay meaningful when banners run inside embedded frames). You can **reset** cookie-only or newsletter-only counters from the popup.
 
 ---
 
 ## Privacy
 
-- **[Privacy Policy](PRIVACY.md)** — local storage, on-page behavior, optional **Report bug** submissions (Google Forms: **base site URL** only, not the full page address), and related details.
+- **[Privacy Policy](PRIVACY.md)** — local storage, on-page behavior (including extension CSS and inline adjustments on specific elements), optional **Report bug** submissions (Google Forms: **base site URL** only, not the full page address; short system summary, not the full raw User-Agent string), and related details.
 
 ---
 
@@ -40,4 +41,4 @@ For testers building from source, use the maintainer’s private repo or distrib
 
 ---
 
-*Last updated: 5 April 2026*
+*Last updated: 6 April 2026*

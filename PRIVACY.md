@@ -1,6 +1,6 @@
 # Privacy Policy — No More Cookies
 
-**Last updated:** April 5, 2026
+**Last updated:** April 6, 2026
 
 This Privacy Policy describes how the **No More Cookies** browser extension (“**the Extension**”) handles information when you install and use it. It applies to the Extension distributed for **Google Chrome** and other **Chromium-based browsers** that support **Manifest V3**.
 
@@ -85,7 +85,7 @@ If you submit a report, the Extension sends a request to **Google Forms** (`http
 
 - The **base URL of the site** you report from (scheme + host + `/` only, e.g. `https://www.example.com/`) — **not** the full address (no path, query string, or fragment), so specific articles or private-looking URL segments are not included  
 - **Extension version**  
-- **Context hints** such as time zone / locale-related hints and a **User-Agent** string (as available in the browser environment)  
+- **Context hints** such as time zone / locale-related hints, plus a **short system summary** (operating system, browser name, and browser version — not the full raw User-Agent string)  
 - **Date/time** fields used to organize responses  
 - An **optional comment** you type  
 - **Summary statistics** from the Extension’s counters (as implemented in your version)
@@ -140,13 +140,13 @@ Processing occurs on **your device** when you browse. Bug reports may be handled
 
 ## Changes to this policy
 
-We may update this document. The **Last updated** date at the top will change when we do. For the published copy, updates will appear in the repository where this file is hosted (e.g. your **NMC-Info** repo on GitHub).
+We may update this document. The **Last updated** date at the top will change when we do. For the published copy, updates will appear in this repository ([**NMC-Info**](https://github.com/HeynStein/NMC-Info) on GitHub).
 
 ---
 
 ## Source code
 
-This file may live in a public **information** repository. The Extension **source code** may be kept **private** and is not necessarily published alongside this policy.
+This file lives in a public **information** repository. The Extension **source code** may be kept **private** and is not necessarily published alongside this policy.
 
 ---
 
