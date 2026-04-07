@@ -1,6 +1,6 @@
 # Privacy Policy — No More Cookies
 
-**Last updated:** April 6, 2026
+**Last updated:** April 7, 2026
 
 This Privacy Policy describes how the **No More Cookies** browser extension (“**the Extension**”) handles information when you install and use it. It applies to the Extension distributed for **Google Chrome** and other **Chromium-based browsers** that support **Manifest V3**.
 
@@ -19,7 +19,7 @@ If you do not agree with this policy, please do not use the Extension.
 
 - The Extension helps reduce interruptions from cookie consent prompts and, if you turn it on, certain newsletter / email-capture overlays.
 - Most behavior runs **locally in your browser**.
-- To do that, the Extension may **change how pages look and behave** on sites you visit (for example by applying **inline CSS** or adjusting attributes such as scroll lock and `inert`) so banners can be dismissed and the page stays scrollable and clickable. Those changes happen **on your device**; we do **not** receive the page HTML or your browsing content from that process.
+- To do that, the Extension may **change how pages look and behave** on sites you visit (for example by applying **inline CSS**, forcing scoped CSS overrides on trusted content roots when pages remain dimmed after consent, or adjusting attributes such as scroll lock and `inert`) so banners can be dismissed and the page stays scrollable and clickable. Those changes happen **on your device**; we do **not** receive the page HTML or your browsing content from that process.
 - Settings and statistics are stored **on your device** (not on servers we operate).
 - If you use **Report bug** in the Extension popup, some **diagnostic information** is sent to **Google** via **Google Forms**, including **only the site’s base URL** (not the full page link).
 - We **do not sell** your data. The Extension is **not directed at children under 13** (or the minimum age in your country).
@@ -69,7 +69,7 @@ You can remove Extension data using your browser’s settings. The popup may off
 
 To find and interact with banners, buttons, and overlays, the Extension reads and acts on the **page structure (DOM)** and **computed styles** of sites you visit (including frames where applicable). This happens **entirely on your device**.
 
-**What “acting on the page” means:** The Extension may inject or override **CSS** (including via the extension’s own stylesheet and via **inline styles** on specific elements), adjust **attributes** (for example to reduce scroll or pointer “locks”), and programmatically **click** visible controls that correspond to decline / dismiss actions. It does **not** remove DOM nodes in a way intended to crash sites; when elements are hidden, that is generally done with CSS (e.g. `display`, `visibility`, `opacity`, `pointer-events`) rather than deleting nodes.
+**What “acting on the page” means:** The Extension may inject or override **CSS** (including via the extension’s own stylesheet and via **inline styles** on specific elements), apply scoped visual normalization overrides on trusted app/content roots when needed (for example reset `filter` / `backdrop-filter` / `opacity` after consent UI is handled), adjust **attributes** (for example to reduce scroll or pointer “locks”), and programmatically **click** visible controls that correspond to decline / dismiss actions. It does **not** remove DOM nodes in a way intended to crash sites; when elements are hidden, that is generally done with CSS (e.g. `display`, `visibility`, `opacity`, `pointer-events`) rather than deleting nodes.
 
 **What is not sent to us by default:** The full text of pages you read, form values you type, passwords, or other page content are **not** transmitted to our servers as part of normal Extension operation. The only **optional** outbound data path described in this policy is **bug reports** (see below).
 
